@@ -1,14 +1,18 @@
-import React, { Component } from 'react';
+import React, {
+	Component
+} from 'react';
 import {
-  Text,
-  View,
-  TextInput
+	Text,
+	View,
+	TextInput,
+	FlatList
 } from 'react-native';
-class MineScreen extends Component{
+class MineScreen extends Component {
 
-	render(){
+
+	render() {
 		return <View>
-			<Text>MineScreen</Text>
+			
 		</View>
 	}
 }

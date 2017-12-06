@@ -20,6 +20,12 @@ import HomeScreen from './components/Home/HomeScreen.js';
 import OrderListScreen from './components/OrderList/OrderListScreen.js';
 import MineScreen from './components/Mine/MineScreen.js';
 import QuestionScreen from './components/Question/QuestionScreen.js';
+import ModifyPasswordScreen from './components/ModifyPassword/ModifyPasswordScreen.js';
+import EditePasswordScreen from './components/EditePassword/EditePasswordScreen.js';
+import BrandScreen from './components/Brand/BrandScreen.js';
+import SpecScreen from './components/Spec/SpecScreen.js';
+import PriceDetailScreen from './components/PriceDetail/PriceDetailScreen.js';
+import CustomerScreen from './components/Customer/CustomerScreen.js';
 import {
     StackNavigator,
     TabNavigator,
@@ -96,11 +102,57 @@ const Navigator = StackNavigator({
     },
     Question: {
         screen: QuestionScreen,
+        navigationOptions: {
+            headerTitle: '选择故障问题',
+            headerRight: <Icon name='envelope'/>
+        }
     },
+    PriceDetail: {
+        screen: PriceDetailScreen,
+        navigationOptions: {
+            headerTitle: '收费明细',
+            headerRight: <Icon name='envelope'/>
+        }
+    },
+    ModifyPassword: {
+        screen: ModifyPasswordScreen,
+        navigationOptions: {
+            headerTitle: '修改密码',
+            headerRight: <Text/>
+        }
+    },
+    EditePassword: {
+        screen: EditePasswordScreen,
+        navigationOptions: {
+            headerTitle: '修改密码',
+            headerRight: <Text/>
+        }
+    },
+    Brand: {
+        screen: BrandScreen,
+        navigationOptions: {
+            headerTitle: '选择品牌',
+            headerRight: <Icon name='envelope'/>
+        }
+    },
+    Spec: {
+        screen: SpecScreen,
+        navigationOptions: {
+            headerTitle: '选择型号和颜色',
+            headerRight: <Icon name='envelope'/>
+        }
+    },
+    Customer: {
+        screen: CustomerScreen,
+        navigationOptions: {
+            headerTitle: '填写客户信息',
+        }
+    }
 }, {
     navigationOptions: {
         headerStyle: styles.header,
         headerTitleStyle: styles.headerTitleStyle,
+        headerRight: <Text/>
     }
 })
 class App extends Component {

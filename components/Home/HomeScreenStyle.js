@@ -3,65 +3,46 @@ import {
 } from 'react-native';
 import theme from '../../theme.js';
 export default StyleSheet.create({
-	homeContent: {
-		backgroundColor: theme.bodyColor,
-		padding: 10,
-		flex: 1,
-		height: '100%',
-	},
 	home: {
-		backgroundColor: theme.bodyColor,
+		height: '100%'
+	},
+	homeContent: {
+		paddingHorizontal: 40,
+		paddingTop: 20,
 		flex: 1,
-	},
-	tabBarIcon: {
-		fontSize: 20,
-		paddingRight: 10
-	},
-	homeTitleIcon: {
-		fontSize: 18,
-		color: theme.themeColor,
 	},
 	homeTitle: {
 		flexDirection: 'row',
-		justifyContent: 'space-between',
+		justifyContent: 'center',
 		padding: 10,
 		borderBottomColor: theme.borderColor,
 		borderBottomWidth: 0.5,
-		backgroundColor: 'white',
 	},
-	brandListTitle: {
-		backgroundColor: theme.borderColor,
-		paddingTop: 10,
-		paddingBottom: 10,
-		color: 'white',
+	typeBody: {
+		backgroundColor: theme.blue,
+		padding: 10,
+	},
+	typeTitle: {
 		textAlign: 'center',
+		color: 'white',
 	},
-	brandItem: {
-		alignItems: 'center',
-		justifyContent: 'center',
-		padding: 0,
-		height: 40,
-	},
-	orderTitle: {
-		backgroundColor: theme.navigatorColor,
-		paddingTop: 10,
-		paddingBottom: 10,
-		paddingLeft: 10,
-		marginTop: 20,
-		marginBottom: 5,
-	},
-	orderListIem: {
-		color: theme.blue,
-		paddingTop: 5,
-		paddingBottom: 5,
-	},
-	footer: {
+	typeListItem: {
 		flexDirection: 'row',
 		alignItems: 'center',
-		padding: 10,
+		justifyContent: 'space-between',
+		paddingHorizontal: 20,
+		paddingVertical: 10,
+		backgroundColor: 'white',
+		marginTop: 10,
 	},
 	input: {
 		flex: 1,
+		backgroundColor: 'white',
+	},
+	repaire: {
+		flexDirection: 'row',
+		alignItems: 'center',
+		marginVertical: 20,
 	},
 	repaireText: {
 		backgroundColor: theme.backgroundColor,
@@ -70,5 +51,24 @@ export default StyleSheet.create({
 		paddingTop: 10,
 		paddingBottom: 10,
 		color: 'white',
-	}
+	},
+	order: {
+		backgroundColor: 'white',
+		padding: 10,
+		marginBottom: 10,
+		flex: 1
+	},
+	orderTitle: {
+		paddingVertical: 10,
+		paddingHorizontal: 5,
+		borderColor: theme.borderColor,
+		borderBottomWidth: 0.5,
+		color: 'black',
+	},
+	orderListIem: {
+		paddingTop: 5,
+		paddingBottom: 5,
+		paddingHorizontal: 5,
+	},
+
 });

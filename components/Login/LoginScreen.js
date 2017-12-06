@@ -4,13 +4,14 @@ import React, {
 import {
 	Text,
 	View,
-	TextInput
+	StyleSheet
 } from 'react-native';
-import styles from './LoginScreenStyle.js';
 import commonStyles from '../../AppStyle.js';
 import Storage from '../../Util/Storage.js';
+import PlainInput from '../Public/PlainInput/PlainInput.js';
+import CusButton from '../Public/CusButton/CusButton.js';
+import theme from '../../theme.js';
 import {
-	Button,
 	Toast
 } from 'antd-mobile';
 class LoginScreen extends Component {
@@ -29,13 +30,14 @@ class LoginScreen extends Component {
 				name: "王小明",
 				shop: "大上海维修点"
 			})
-			Storage.get('user').then(user => {
-				console.log(34, user);
-			})
 			this.props.navigation.navigate("Home");
 		} else {
 			Toast.fail('请输入账号和密码', 3);
 		}
+	}
+	handleModify = () => {
+		console.log('handleModify');
+		this.props.navigation.navigate("ModifyPassword");
 	}
 	updateText = (info) => {
 
@@ -43,21 +45,43 @@ class LoginScreen extends Component {
 	render() {
 		return <View style={styles.continner}>
 			<Text>登录</Text>
-			<TextInput
-		        style={[commonStyles.input,styles.input]}
+			<PlainInput
+		        style={styles.input}
 		        placeholder="账号"
 		        onChangeText={(account) => this.setState({account})}
 		        underlineColorAndroid="transparent"
 		        value={this.state.text}
 		    />
-		    <TextInput
-		        style={[commonStyles.input,styles.input]}
+		    <PlainInput
+		        style={styles.input}
 		        placeholder="密码"
 		        onChangeText={(password) => this.setState({password})}
 		        value={this.state.text}
 		    />
-		    <Button type="primary" style={[commonStyles.buttonBlack,styles.button]} onClick={this.handleClick}>登录</Button>
+		    <CusButton style={styles.button} color={theme.themeColor} title="确定" onPress ={this.handleClick} />
+			<Text onPress={this.handleModify} style={styles.modify}>忘记密码？</Text>
 		</View>
 	}
 }
+
+const styles = StyleSheet.create({
+	continner: {
+		justifyContent: 'center',
+		alignItems: 'center',
+		flex: 1,
+		paddingHorizontal: '20%',
+	},
+	input: {
+		width: "100%",
+		marginTop: 20,
+	},
+	button: {
+		width: "100%",
+		marginTop: 20,
+	},
+	modify: {
+		alignSelf: 'flex-start',
+		marginTop: 20,
+	}
+});
 export default LoginScreen;

@@ -5,4 +5,5 @@ export default {
 	borderColor: "#c4c4c4",
 	bodyColor: "white",
 	blue: '#3285ea',
+	grey: "grey",
 }

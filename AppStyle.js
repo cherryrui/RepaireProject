@@ -28,5 +28,30 @@ export default StyleSheet.create({
 		borderColor: theme.borderColor,
 		fontSize: 13,
 		padding: 4,
+	},
+	separator: {
+		height: 0.5,
+		backgroundColor: 'rgb(200, 199, 204)',
+	},
+	footer: {
+		flexDirection: 'row',
+		backgroundColor: 'white',
+	},
+	left: {
+		paddingLeft: 20,
+		paddingVertical: 15,
+		flex: 1,
+		flexDirection: 'row',
+	},
+	leftText: {
+		color: theme.blue,
+		fontWeight: 'bold',
+	},
+	right: {
+		paddingHorizontal: 30,
+		paddingVertical: 15,
+		backgroundColor: theme.blue,
+		justifyContent: 'center',
+		color: 'white',
 	}
 });
