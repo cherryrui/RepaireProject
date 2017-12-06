@@ -1,0 +1,47 @@
+import React, {
+	Component
+} from 'react';
+import {
+	View,
+	Text,
+	StyleSheet,
+	TouchableOpacity
+} from 'react-native';
+import Icon from 'react-native-vector-icons/FontAwesome';
+import theme from '../../../theme.js';
+class CusCheckBox extends Component {
+
+	constructor(props) {
+		super(props);
+		this.state = {
+			checked: this.props.checked ? this.props.checked : false,
+		};
+		this.iconName = this.props.iconName ? this.props.iconName : "square-o";
+		this.activeiIconName = this.props.activeiIconName ? this.props.activeiIconName : "check-square";
+	}
+	handleClick = () => {
+		let checked = !this.state.checked;
+		this.setState({
+			checked: checked
+		})
+		this.props.onChange ? this.props.onChange(checked) : "";
+	}
+	render() {
+		return <TouchableOpacity style={[styles.checkbox,this.props.style]} onPress={this.handleClick}>
+			<Icon size={this.props.size} color={this.state.checked?theme.themeColor:theme.grey} 
+			name={this.state.checked?this.activeiIconName:this.iconName}/>
+			<Text style={styles.text}>{this.props.title}</Text>
+		</TouchableOpacity>
+	}
+}
+const styles = StyleSheet.create({
+	checkbox: {
+		flexDirection: 'row',
+		justifyContent: 'center',
+		alignItems: 'center',
+	},
+	text: {
+		marginLeft: 10,
+	},
+})
+export default CusCheckBox;
