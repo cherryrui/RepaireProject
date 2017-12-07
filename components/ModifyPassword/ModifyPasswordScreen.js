@@ -9,8 +9,10 @@ import {
 	TouchableOpacity,
 	StyleSheet
 } from 'react-native';
-import comonStyles from '../../AppStyle.js';
 import CusButton from '../Public/CusButton/CusButton.js';
+import comonStyles from '../../AppStyle.js';
+import commonStyle from '../../AppStyle.js';
+import theme from '../../theme.js';
 class ModifyPasswordScreen extends Component {
 
 
@@ -18,42 +20,74 @@ class ModifyPasswordScreen extends Component {
 		this.props.navigation.navigate("EditePassword");
 	}
 	render() {
-		return <View>
-			<View style={styles.line}>
-				<Text>手机号：</Text>
-				<TextInput underlineColorAndroid="transparent" style={[comonStyles.input,styles.input]}/>
+		return <View style={styles.subject_contentcontent}>
+			<View style={styles.line}>				
+				<TextInput placeholder= "输入手机号"  placeholderTextColor={theme.lightgray} style={[comonStyles.input,styles.input]}/>
 			</View>
-			<View style={styles.line}>
-				<Text>验证码：</Text>
-				<TextInput underlineColorAndroid="transparent" style={[comonStyles.input,styles.inputCode]}/>
-				<CusButton title="获取验证码" onPress={this.handleClick}/>
+			<View style={styles.line}>			
+				<TextInput placeholder= "验证码" placeholderTextColor={theme.lightgray} style={[comonStyles.input,styles.input]}/>
+		<Text style={styles.code}>获取短信验证码</Text>
+			</View>		
+			<View  onPress={this.handleClick} style={styles.next} >
+				<Text style={styles.text_next}>下一步</Text>
 			</View>
-			<CusButton style={styles.next}
-			  	title="下一步"
-			  	color="red"
-			  	onPress={this.handleClick}
-			/>
 		</View>
 	}
 }
 const styles = StyleSheet.create({
+	subject_contentcontent: {
+		backgroundColor: theme.bodyColor,
+		marginTop: 6,
+		minHeight: 1280,
+	},
 	line: {
 		alignItems: 'center',
 		flexDirection: 'row',
-		marginHorizontal: 20,
-		marginTop: 20
+		borderBottomColor: theme.backgroundColor,
+		borderBottomWidth: 1,
+
 	},
 	input: {
 		flex: 1,
+		borderColor: 'transparent',
+		marginHorizontal: 20,
+		fontSize: 14,
+		height: 40,
+
 	},
 	inputCode: {
 		flex: 1,
-		marginRight: 10,
+		borderColor: 'transparent',
+	},
+	code: {
+		height: 40,
+		width: 120,
+		backgroundColor: theme.blue,
+		justifyContent: 'center',
+		color: 'white',
+		paddingHorizontal: 25,
+		paddingVertical: 10,
 	},
 	next: {
-		width: '60%',
+		width: 136,
+		height: 36,
+		alignItems: 'center',
 		alignSelf: 'center',
-		marginTop: 20,
+		justifyContent: 'center',
+		marginTop: 32,
+		backgroundColor: theme.themeColor,
+		borderRadius: 5,
+		color: 'white',
+		paddingTop: 15,
+		paddingBottom: 15,
+		color: theme.themeColor,
+		fontSize: 30,
+
+
 	},
+	text_next: {
+		color: theme.bodyColor,
+		fontSize: 14,
+	}
 });
 export default ModifyPasswordScreen;

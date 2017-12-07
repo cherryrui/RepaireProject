@@ -10,6 +10,7 @@ import {
 } from 'react-native';
 import comonStyles from '../../AppStyle.js';
 import styles from './EditePasswordStyle.js';
+import theme from '../../theme.js';
 import CusButton from '../Public/CusButton/CusButton.js';
 class EditePasswordScreen extends Component {
 
@@ -18,20 +19,17 @@ class EditePasswordScreen extends Component {
 
 	}
 	render() {
-		return <View>
-			<View style={styles.line}>
-				<Text style={styles.left}>新密码：</Text>
-				<TextInput underlineColorAndroid="transparent" style={[comonStyles.input,styles.input]}/>
+		return <View style={styles.subject_contentcontent}>
+			<View style={styles.line}>				
+				<TextInput underlineColorAndroid="transparent" placeholder= "输入新密码"  placeholderTextColor={theme.lightgray}  style={[comonStyles.input,styles.input]}/>
 			</View>
-			<View style={styles.line}>
-				<Text style={styles.left}>确认密码：</Text>
-				<TextInput underlineColorAndroid="transparent" style={[comonStyles.input,styles.input]}/>
+			<View style={styles.line}>				
+		<TextInput underlineColorAndroid="transparent" placeholder= "确认密码"  placeholderTextColor={theme.lightgray}  style={[comonStyles.input,styles.input]}/>
 			</View>
-			<CusButton
-				style={styles.next}
-				title="确认修改"
-				color="red"
-				onPress={this.handleClick}/>
+			<View  onPress={this.handleClick} style={styles.next}>
+		<Text style={styles.text_next}>确认修改</Text>
+			</View>
+			
 		</View>
 	}
 }
