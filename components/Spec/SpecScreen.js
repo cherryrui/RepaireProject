@@ -97,7 +97,7 @@ class SpecScreen extends Component {
 
 	render() {
 		return <View>
-			<Text style={styles.title}>{this.param.name}</Text>
+			<Text style={styles.title}>品牌：{this.param.name}</Text>
 			<Accordion >
 				{this.state.versionList.map(spec=>{
 					return <Accordion.Panel style={styles.versionHeader} key='id' header={spec.name}>

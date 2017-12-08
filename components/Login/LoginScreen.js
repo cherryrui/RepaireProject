@@ -44,36 +44,49 @@ class LoginScreen extends Component {
 	}
 	render() {
 		return <View style={styles.continner}>
-			<Text>登录</Text>
-			<PlainInput
-		        style={styles.input}
-		        placeholder="账号"
-		        onChangeText={(account) => this.setState({account})}
-		        underlineColorAndroid="transparent"
-		        value={this.state.text}
-		    />
-		    <PlainInput
-		        style={styles.input}
-		        placeholder="密码"
-		        onChangeText={(password) => this.setState({password})}
-		        value={this.state.text}
-		    />
-		    <CusButton style={styles.button} color={theme.themeColor} title="确定" onPress ={this.handleClick} />
-			<Text onPress={this.handleModify} style={styles.modify}>忘记密码？</Text>
+			<View style={styles.body}>
+				<Text>LOGO</Text>
+				<PlainInput
+			        style={styles.input}
+			        placeholder="账号"
+			        iconName="account-circle"
+			        size={18}
+			        onChangeText={(account) => this.setState({account})}
+			        underlineColorAndroid="transparent"
+			        value={this.state.text}
+			    />
+			    <PlainInput
+			        style={styles.input}
+			        placeholder="密码"
+			        iconName="lock-open"
+			        size={18}
+			        onChangeText={(password) => this.setState({password})}
+			        value={this.state.text}
+			    />
+			    <CusButton style={styles.button} color={theme.themeColor} title="确定" onPress ={this.handleClick} />
+				<Text onPress={this.handleModify} style={styles.modify}>忘记密码？</Text>
+			</View>
 		</View>
 	}
 }
 
 const styles = StyleSheet.create({
 	continner: {
+		paddingHorizontal: '10%',
+		paddingTop: '20%',
+		flex: 1,
+	},
+	body: {
+		backgroundColor: 'white',
+		borderRadius: 4,
 		justifyContent: 'center',
 		alignItems: 'center',
-		flex: 1,
-		paddingHorizontal: '20%',
+		padding: 20,
 	},
 	input: {
 		width: "100%",
 		marginTop: 20,
+		borderRadius: 4,
 	},
 	button: {
 		width: "100%",

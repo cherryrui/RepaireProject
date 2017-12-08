@@ -11,7 +11,7 @@ import {
 import {
 	Grid
 } from 'antd-mobile';
-import Icon from 'react-native-vector-icons/FontAwesome';
+import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import PlainInput from '../Public/PlainInput/PlainInput.js';
 import commonStyles from '../../AppStyle.js';
 import Storage from '../../Util/Storage.js';
@@ -21,8 +21,8 @@ class HomeScreen extends Component {
 	static navigationOptions = (nav) => {
 		return {
 			headerTitle: "首页",
-			headerLeft: <Text/>,
-			headerRight: <Icon style={styles.tabBarIcon} name="envelope"/>
+			headerLeft: <Text style={commonStyles.tabBarRightIcon}>签到</Text>,
+			headerRight: <Icon style={commonStyles.tabBarLeftIcon} name='message-reply-text'/>
 		}
 	};
 	constructor(props) {

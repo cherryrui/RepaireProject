@@ -27,9 +27,9 @@ class ModifyPasswordScreen extends Component {
 			<View style={styles.line}>			
 				<TextInput placeholder= "验证码" placeholderTextColor={theme.lightgray} style={[comonStyles.input,styles.input]}/>
 		<Text style={styles.code}>获取短信验证码</Text>
-			</View>		
-			<View  onPress={this.handleClick} style={styles.next} >
-				<Text style={styles.text_next}>下一步</Text>
+			</View>
+			<View  style={styles.next} >
+				<Text onPress={this.handleClick} style={styles.text_next}>下一步</Text>
 			</View>
 		</View>
 	}

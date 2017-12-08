@@ -38,6 +38,7 @@ export default StyleSheet.create({
 	input: {
 		flex: 1,
 		backgroundColor: 'white',
+		margin: 0,
 	},
 	repaire: {
 		flexDirection: 'row',
@@ -45,11 +46,9 @@ export default StyleSheet.create({
 		marginVertical: 20,
 	},
 	repaireText: {
-		backgroundColor: theme.backgroundColor,
-		paddingRight: 20,
-		paddingLeft: 20,
-		paddingTop: 10,
-		paddingBottom: 10,
+		backgroundColor: theme.black,
+		paddingHorizontal: 20,
+		paddingVertical: 9,
 		color: 'white',
 	},
 	order: {

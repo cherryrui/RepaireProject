@@ -7,7 +7,7 @@ import {
 	StyleSheet,
 	TouchableOpacity
 } from 'react-native';
-import Icon from 'react-native-vector-icons/FontAwesome';
+import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import theme from '../../../theme.js';
 class CusCheckBox extends Component {
 
@@ -16,8 +16,8 @@ class CusCheckBox extends Component {
 		this.state = {
 			checked: this.props.checked ? this.props.checked : false,
 		};
-		this.iconName = this.props.iconName ? this.props.iconName : "square-o";
-		this.activeiIconName = this.props.activeiIconName ? this.props.activeiIconName : "check-square";
+		this.iconName = this.props.iconName ? this.props.iconName : "checkbox-blank-outline";
+		this.activeiIconName = this.props.activeiIconName ? this.props.activeiIconName : "checkbox-marked";
 	}
 	handleClick = () => {
 		let checked = !this.state.checked;

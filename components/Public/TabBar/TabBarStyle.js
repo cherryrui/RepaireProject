@@ -24,8 +24,16 @@ export default StyleSheet.create({
 		fontSize: 20,
 		paddingLeft: 10,
 		paddingRight: 10,
+		borderColor: theme.black,
 	},
 	tabBarInput: {
 		flex: 1,
+		borderRadius: 15,
+		borderColor: theme.borderColor,
+		borderWidth: 1,
+		height: 30,
+		paddingHorizontal: 10,
+		paddingVertical: 0,
+		textAlignVertical: 'center',
 	}
 });

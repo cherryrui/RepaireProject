@@ -43,7 +43,7 @@ class BrandScreen extends Component {
 	}
 
 	render() {
-		return <View>
+		return <View style={styles.brand}>
 			<FlatList
 				data={this.state.brandList}
 			    keyExtractor={(item, index) => item.id}
@@ -58,6 +58,9 @@ class BrandScreen extends Component {
 }
 
 const styles = StyleSheet.create({
+	brand: {
+		paddingTop: 10,
+	},
 	item: {
 		backgroundColor: 'white',
 		flexDirection: 'row',

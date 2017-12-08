@@ -6,6 +6,7 @@ import {
 	View,
 	TextInput,
 	FlatList,
+	StyleSheet,
 	ActivityIndicator
 } from 'react-native';
 import {
@@ -13,7 +14,8 @@ import {
 	List,
 } from 'antd-mobile';
 import StackOptions from '../Public/TabBar/StackOptions.js';
-import Icon from 'react-native-vector-icons/FontAwesome';
+import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
+import theme from '../../theme.js';
 const Item = List.Item;
 const Brief = Item.Brief;
 
@@ -24,6 +26,7 @@ class OrderListScreen extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
+			refreshing: false,
 			orderList: [{
 				id: 1,
 				name: "chenxians",
@@ -55,18 +58,19 @@ class OrderListScreen extends Component {
 			}, ],
 		};
 		this.searchText = '';
+		this.page = 1;
 		this.tabs2 = [{
 			title: '全部',
 			key: 0
 		}, {
 			title: '已接单',
-			sub: 1
+			key: 1
 		}, {
 			title: '未付款',
-			sub: 2
+			key: 2
 		}, {
 			title: '已付款',
-			sub: 3
+			key: 3
 		}, ];
 		this.data = [{
 			img: 'https://zos.alipayobjects.com/rmsportal/dKbkpPXKfvZzWCM.png',
@@ -105,41 +109,40 @@ class OrderListScreen extends Component {
 	search = () => {
 		console.log(20, 'search', this.searchText)
 	}
+	getOrder = (page) => {
+		console.log(page, typeof(page));
+		this.page = typeof(page) === 'number' ? page : this.page + 1;
+		this.setState({
+			refreshing: true
+		})
+		let orderList = this.state.orderList;
+		for (let i = 0; i < 10; i++) {
+			orderList.push({
+				id: orderList.length + i
+			});
+		}
+		this.setState({
+			orderList: orderList,
+			refreshing: false
+		})
+	}
 	render() {
-		console.log("render");
-		return <View style={{flex:1}}>
+		return <View style={styles.body}>
 			<Tabs tabs={this.tabs2}
 		      	renderTab={tab=><Text>{tab.title}</Text>}
 		    >
-			    <View>
-			      	<FlatList
-			      		data={this.state.orderList}
-			      		keyExtractor={(item, index) => item.id}
-			      		renderItem={(item)=><Order/>}
-			      	/>
-			    </View>
-		      	<View>
-					<List>
-		      			{this.state.orderList.map(item=>{
-		      				return <Item key={item.id} arrow="horizontal" multipleLine onClick={() => {}}>
-		      					{item.name}<Brief>subtitle</Brief>
-		      				</Item>
-		      			})}
-		      		</List>
-		      	</View>
-		      	<View>
-		      		 <ActivityIndicator animating={false} size="large" color="#0000ff" />
-				        <ActivityIndicator size="small" color="#00ff00" />
-				        <ActivityIndicator size="large" color="#0000ff" />
-				        <ActivityIndicator size="small" color="#00ff00" />
-			    </View>
-		      	<View>
-		      		<FlatList
-			      		data={this.state.orderList}
-			      		keyExtractor={(item, index) => item.id}
-			      		renderItem={(item)=><Order/>}
-			      	/>
-			    </View>
+		    	{this.tabs2.map((item,tab_index)=>{
+		    		return <View key="key">
+				      	<FlatList
+				      		data={this.state.orderList}
+				      		keyExtractor={(item, index) => item.id+index+""}
+				      		renderItem={(item)=><Order/>}
+				      		onEndReached={this.getOrder}
+				      		onRefresh={this.getOrder.bind(this,1)}
+				      		refreshing={this.state.refreshing}
+				      	/>
+			    	</View>
+		    	})}
 		    </Tabs>
 		</View>
 	}
@@ -147,19 +150,80 @@ class OrderListScreen extends Component {
 
 class Order extends React.PureComponent {
 
+	handleClick = () => {
+
+	}
 	render() {
-		return <View>
-			<View>
-				<Text>2017-01-11 12:00:00</Text>
-				<Text>已接单</Text>
+		return <View style={styles.order} onPress={this.handleClick.bind(this,1)}>
+			<View style={styles.orderTitle}>
+				<Text style={styles.orderText}>2017-01-11 12:00:00</Text>
+				<Text style={styles.orderText}>已接单</Text>
 			</View>
-			<View>
-				<Text>订单号：21312312321</Text>
-				<Text>返修</Text>
+			<View style={styles.orderBody}>
+				<View style={styles.item}>
+					<View style={styles.orderNo}>
+						<Text >订单号：21312312321</Text>
+						<Text style={true?[styles.status,styles.repair]:[styles.status,styles.diagnosis]}>返修</Text>
+					</View>
+					<Text style={styles.pay}>收款</Text>
+				</View>
+				<Text style={styles.item}>客户姓名：陈先生</Text>
+				<Text>手机/苹果/ipone6/jine</Text>
 			</View>
-			<Text>客户姓名：陈先生</Text>
-			<Text>手机/苹果/ipone6/jine</Text>
 		</View>
 	}
 }
+
+const styles = StyleSheet.create({
+	body: {
+		flex: 1,
+		borderTopColor: theme.borderColor,
+		borderWidth: 0.5,
+		borderColor: 'transparent',
+	},
+	order: {
+		marginTop: theme.Vertical_10,
+		backgroundColor: theme.bodyColor,
+	},
+	orderTitle: {
+		backgroundColor: theme.black,
+		flexDirection: 'row',
+		justifyContent: 'space-between',
+		paddingHorizontal: theme.Horizontal,
+	},
+	orderText: {
+		color: 'white',
+	},
+	orderBody: {
+		paddingHorizontal: theme.Horizontal,
+		paddingVertical: theme.Vertical_10,
+	},
+	item: {
+		marginBottom: 10,
+		flexDirection: 'row',
+		justifyContent: 'space-between',
+	},
+	orderNo: {
+		flexDirection: 'row',
+	},
+	status: {
+		borderRadius: 10,
+		color: 'white',
+		marginLeft: 10,
+		paddingHorizontal: 10,
+	},
+	repair: {
+		backgroundColor: theme.blue,
+	},
+	diagnosis: {
+		backgroundColor: theme.red,
+	},
+	pay: {
+		paddingHorizontal: 10,
+		borderColor: theme.red,
+		borderRadius: 2,
+		color: theme.red,
+		borderWidth: 1,
+	},
+})
 export default OrderListScreen;

@@ -22,6 +22,8 @@ export default StyleSheet.create({
 	},
 	headerTitleStyle: {
 		alignSelf: 'center',
+		fontWeight: 'normal',
+		fontSize: 16,
 	},
 	input: {
 		borderWidth: 0.5,
@@ -53,5 +55,14 @@ export default StyleSheet.create({
 		backgroundColor: theme.blue,
 		justifyContent: 'center',
 		color: 'white',
-	}
+	},
+	tabBarRightIcon: {
+		fontSize: 14,
+		paddingLeft: 20,
+	},
+	tabBarLeftIcon: {
+		fontSize: 20,
+		paddingRight: 20,
+		color: theme.fontColor,
+	},
 });

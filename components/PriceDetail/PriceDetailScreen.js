@@ -80,9 +80,10 @@ const styles = StyleSheet.create({
 	content: {
 		flex: 1,
 		backgroundColor: theme.backgroundColor,
+		marginTop: 10,
 	},
 	contentTitle: {
-		backgroundColor: theme.themeColor,
+		backgroundColor: theme.black,
 		flexDirection: 'row',
 	},
 	contentTitleRow: {

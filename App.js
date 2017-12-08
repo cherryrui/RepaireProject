@@ -13,7 +13,7 @@ import {
     Text,
     View
 } from 'react-native';
-import Icon from 'react-native-vector-icons/FontAwesome';
+import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import styles from './AppStyle.js';
 import LoginScreen from './components/Login/LoginScreen.js';
 import HomeScreen from './components/Home/HomeScreen.js';
@@ -31,7 +31,7 @@ import {
     TabNavigator,
     TabBarBottom
 } from 'react-navigation';
-
+import theme from './theme.js';
 /**
  * faye注册tab
  */
@@ -42,11 +42,11 @@ let routes = [{
 }, {
     name: 'OrderList',
     screen: OrderListScreen,
-    iconName: 'list-alt',
+    iconName: 'clipboard-text',
 }, {
     name: 'Mine',
     screen: MineScreen,
-    iconName: 'bar-chart',
+    iconName: 'chart-bar',
 }, ];
 /**
  * faye 根据路由注册路由
@@ -79,8 +79,8 @@ const Tab = TabNavigator(formatRoutes(), {
     indicatorStyle: styles.tabBarIndicator,
     tabBarOptions: {
         showLabel: false,
-        activeTintColor: '#06c1ae',
-        inactiveTintColor: '#979797',
+        activeTintColor: theme.blue,
+        inactiveTintColor: theme.black,
         style: {
             backgroundColor: '#f7f7f7',
         },
@@ -104,14 +104,14 @@ const Navigator = StackNavigator({
         screen: QuestionScreen,
         navigationOptions: {
             headerTitle: '选择故障问题',
-            headerRight: <Icon name='envelope'/>
+            headerRight: <Icon style={styles.tabBarLeftIcon} color="#2e2b2e" name='message-reply-text'/>
         }
     },
     PriceDetail: {
         screen: PriceDetailScreen,
         navigationOptions: {
             headerTitle: '收费明细',
-            headerRight: <Icon name='envelope'/>
+            headerRight: <Icon style={styles.tabBarLeftIcon} color="#2e2b2e" name='message-reply-text'/>
         }
     },
     ModifyPassword: {
@@ -132,27 +132,27 @@ const Navigator = StackNavigator({
         screen: BrandScreen,
         navigationOptions: {
             headerTitle: '选择品牌',
-            headerRight: <Icon name='envelope'/>
+            headerRight: <Icon color="#2e2b2e" style={styles.tabBarLeftIcon} name='message-reply-text'/>
         }
     },
     Spec: {
         screen: SpecScreen,
         navigationOptions: {
             headerTitle: '选择型号和颜色',
-            headerRight: <Icon name='envelope'/>
+            headerRight: <Icon color="#2e2b2e" style={styles.tabBarLeftIcon} name='message-reply-text'/>
         }
     },
     Customer: {
         screen: CustomerScreen,
         navigationOptions: {
             headerTitle: '填写客户信息',
+            headerRight: <Text/>
         }
     }
 }, {
     navigationOptions: {
         headerStyle: styles.header,
         headerTitleStyle: styles.headerTitleStyle,
-        headerRight: <Text/>
     }
 })
 class App extends Component {
