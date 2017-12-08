@@ -8,32 +8,52 @@ export default StyleSheet.create({
 	},
 	homeContent: {
 		paddingHorizontal: 40,
-		paddingTop: 20,
+		paddingTop: theme.vertical_16,
 		flex: 1,
 	},
 	homeTitle: {
 		flexDirection: 'row',
-		justifyContent: 'center',
 		padding: 10,
 		borderBottomColor: theme.borderColor,
 		borderBottomWidth: 0.5,
+		paddingHorizontal: theme.horizontal,
+		color: theme.borderColor,
+		alignItems: 'center',
+		paddingVertical: theme.vertical_6,
+	},
+	addressIcon: {
+		fontSize: 24,
+		paddingRight: 6,
 	},
 	typeBody: {
 		backgroundColor: theme.blue,
-		padding: 10,
+		padding: theme.horizontal,
+		paddingTop: theme.vertical_6,
 	},
 	typeTitle: {
 		textAlign: 'center',
 		color: 'white',
+		paddingVertical: theme.vertical_6,
 	},
 	typeListItem: {
 		flexDirection: 'row',
 		alignItems: 'center',
 		justifyContent: 'space-between',
-		paddingHorizontal: 20,
-		paddingVertical: 10,
+		paddingHorizontal: 0,
+		paddingVertical: 0,
 		backgroundColor: 'white',
-		marginTop: 10,
+		marginTop: 0,
+		height: 48,
+		marginTop: theme.vertical_6,
+		color: theme.black,
+	},
+	bankIcon: {
+		paddingLeft: theme.horizontal_24,
+		fontSize: 24,
+		color: theme.black,
+	},
+	bankName: {
+		color: theme.black,
 	},
 	input: {
 		flex: 1,
@@ -43,7 +63,7 @@ export default StyleSheet.create({
 	repaire: {
 		flexDirection: 'row',
 		alignItems: 'center',
-		marginVertical: 20,
+		marginVertical: theme.vertical_16,
 	},
 	repaireText: {
 		backgroundColor: theme.black,
@@ -53,20 +73,21 @@ export default StyleSheet.create({
 	},
 	order: {
 		backgroundColor: 'white',
-		padding: 10,
+		padding: 16,
 		marginBottom: 10,
-		flex: 1
+		flex: 1,
+		marginBottom: 40,
+
 	},
 	orderTitle: {
-		paddingVertical: 10,
+		paddingVertical: theme.vertical_6,
 		paddingHorizontal: 5,
 		borderColor: theme.borderColor,
 		borderBottomWidth: 0.5,
 		color: 'black',
 	},
 	orderListIem: {
-		paddingTop: 5,
-		paddingBottom: 5,
+		paddingTop: theme.vertical_16,
 		paddingHorizontal: 5,
 	},
 

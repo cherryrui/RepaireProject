@@ -11,8 +11,11 @@ export default {
 	fontColor: "#868c8e",
 	disableColor: '#c6c6c6',
 	horizontal: 16,
+	horizontal_40: 40,
+	horizontal_24: 24,
 	vertical_6: 6,
 	vertical: 12,
-	vertical_20: 10,
-
+	vertical_16: 16,
+	vertical_20: 20,
+	vertical_10: 10,
 }

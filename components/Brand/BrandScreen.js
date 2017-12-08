@@ -10,6 +10,7 @@ import {
 } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import commonStyle from '../../AppStyle.js';
+import theme from '../../theme.js';
 class BrandScreen extends Component {
 	constructor(props) {
 		super(props);
@@ -44,13 +45,13 @@ class BrandScreen extends Component {
 
 	render() {
 		return <View style={styles.brand}>
-			<FlatList
+			<FlatList 
 				data={this.state.brandList}
 			    keyExtractor={(item, index) => item.id}
 			    ItemSeparatorComponent={()=><Text style={commonStyle.separator}>dsa</Text>}
 				renderItem = {({item}) => <TouchableOpacity style={styles.item} onPress={this.handleClick.bind(this,item)}>
-			    	<Text>{item.name}</Text>
-			    	<Icon name="home"/>
+			    	<Text color={theme.black}>{item.name}</Text>
+					<Icon name="home"/>
 			   	</TouchableOpacity>}
 			/>
 		</View>
@@ -59,14 +60,16 @@ class BrandScreen extends Component {
 
 const styles = StyleSheet.create({
 	brand: {
-		paddingTop: 10,
+		paddingTop: theme.vertical_6,
 	},
 	item: {
 		backgroundColor: 'white',
 		flexDirection: 'row',
 		justifyContent: 'space-between',
-		paddingHorizontal: 20,
-		paddingVertical: 10,
+		paddingHorizontal: theme.horizontal,
+		paddingVertical: theme.vertical_20,
+		fontSize: 16,
+		color: theme.black,
 	}
 })
 export default BrandScreen;

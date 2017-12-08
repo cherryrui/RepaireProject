@@ -119,7 +119,7 @@ class QuestionScreen extends Component {
 			    				<CusCheckBox title={item.name}
 			    				 	size={18} style={styles.checkbox}
 			    				 	onChange={this.handleChange.bind(this,spec,item)}/>
-			    				<Text>￥{item.price}</Text>
+			    				<Text style={styles.itemPrice}>￥{item.price}</Text>
 			   				</View>}
 						/>
 					</Accordion.Panel>
@@ -128,7 +128,7 @@ class QuestionScreen extends Component {
 			<View style={commonStyle.footer}>
 				<View style={commonStyle.left}>
 					<Text>合计：</Text>
-					<Text style={commonStyle.leftText}>￥{this.state.total}</Text>
+					<Text style={[commonStyle.leftText,styles.leftPrice]}>￥{this.state.total}</Text>
 				</View>
 				<Text style={commonStyle.right} onPress={this.handleClick}>下一步</Text>
 			</View>
@@ -152,13 +152,24 @@ const styles = StyleSheet.create({
 	},
 	versionHeader: {
 		backgroundColor: 'white',
+		paddingHorizontal: theme.horizontal,
+		paddingVertical: theme.vertical_10,
 	},
 	item: {
 		flexDirection: 'row',
 		justifyContent: 'space-between',
-		paddingHorizontal: 20,
-		paddingVertical: 10,
+		paddingHorizontal: theme.horizontal,
+		paddingVertical: theme.vertical_20,
 		backgroundColor: theme.backgroundColor,
+		color: theme.black,
 	},
+	itemPrice: {
+		color: theme.blue,
+		fontWeight: 'bold',
+	},
+	leftPrice: {
+		fontSize: 16,
+
+	}
 })
 export default QuestionScreen;

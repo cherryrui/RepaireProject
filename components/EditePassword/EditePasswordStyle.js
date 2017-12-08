@@ -34,15 +34,8 @@ export default StyleSheet.create({
 	next: {
 		width: 136,
 		height: 36,
-		alignItems: 'center',
 		alignSelf: 'center',
-		justifyContent: 'center',
 		marginTop: 32,
-		backgroundColor: theme.themeColor,
-		borderRadius: 5,
-		color: 'white',
-		paddingTop: 15,
-		paddingBottom: 15,
 	},
 	text_next: {
 		color: theme.bodyColor,

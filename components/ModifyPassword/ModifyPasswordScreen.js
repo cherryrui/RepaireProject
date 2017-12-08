@@ -27,10 +27,9 @@ class ModifyPasswordScreen extends Component {
 			<View style={styles.line}>			
 				<TextInput placeholder= "验证码" placeholderTextColor={theme.lightgray} style={[comonStyles.input,styles.input]}/>
 		<Text style={styles.code}>获取短信验证码</Text>
-			</View>
-			<View  style={styles.next} >
-				<Text onPress={this.handleClick} style={styles.text_next}>下一步</Text>
-			</View>
+			</View>	
+			<CusButton style={styles.next} color={theme.themeColor} title="下一步" onPress ={this.handleClick} />	
+		
 		</View>
 	}
 }
@@ -71,19 +70,8 @@ const styles = StyleSheet.create({
 	next: {
 		width: 136,
 		height: 36,
-		alignItems: 'center',
 		alignSelf: 'center',
-		justifyContent: 'center',
 		marginTop: 32,
-		backgroundColor: theme.themeColor,
-		borderRadius: 5,
-		color: 'white',
-		paddingTop: 15,
-		paddingBottom: 15,
-		color: theme.themeColor,
-		fontSize: 30,
-
-
 	},
 	text_next: {
 		color: theme.bodyColor,

@@ -25,11 +25,8 @@ class EditePasswordScreen extends Component {
 			</View>
 			<View style={styles.line}>				
 		<TextInput underlineColorAndroid="transparent" placeholder= "确认密码"  placeholderTextColor={theme.lightgray}  style={[comonStyles.input,styles.input]}/>
-			</View>
-			<View  onPress={this.handleClick} style={styles.next}>
-		<Text style={styles.text_next}>确认修改</Text>
-			</View>
-			
+			</View>		
+			<CusButton style={styles.next} color={theme.themeColor} title="确认修改" onPress ={this.handleClick} />
 		</View>
 	}
 }

@@ -122,18 +122,26 @@ const styles = StyleSheet.create({
 	title: {
 		backgroundColor: theme.blue,
 		paddingVertical: 10,
-		paddingHorizontal: 20,
+		paddingHorizontal: theme.horizontal,
 		color: 'white',
 	},
 	versionHeader: {
 		backgroundColor: 'white',
+		paddingHorizontal: theme.horizontal,
+		paddingVertical: theme.vertical_10,
+	},
+	separator: {
+		paddingHorizontal: theme.horizontal,
+		paddingVertical: theme.vertical_16,
+		color: theme.black,
 	},
 	item: {
 		backgroundColor: theme.backgroundColor,
 		flexDirection: 'row',
 		justifyContent: 'space-between',
-		paddingHorizontal: 20,
-		paddingVertical: 10,
+		paddingHorizontal: theme.horizontal,
+		paddingVertical: theme.vertical_20,
+		color: theme.fontColor,
 	}
 })
 export default SpecScreen;

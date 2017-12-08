@@ -15,6 +15,7 @@ export default StyleSheet.create({
 		elevation: 0,
 		shadowOpacity: 0,
 		backgroundColor: theme.navigatorColor,
+		color: theme.black,
 	},
 	tabBarIndicator: {
 		height: 0,
@@ -58,11 +59,12 @@ export default StyleSheet.create({
 	},
 	tabBarRightIcon: {
 		fontSize: 14,
-		paddingLeft: 20,
+		paddingLeft: theme.horizontal,
+		color: theme.black,
 	},
 	tabBarLeftIcon: {
-		fontSize: 20,
-		paddingRight: 20,
+		fontSize: 24,
+		paddingRight: theme.horizontal,
 		color: theme.black,
 	},
 });

@@ -98,14 +98,17 @@ class HomeScreen extends Component {
 	render() {
 		return <View style={styles.home}>
 			<View style={styles.homeTitle}>
+		<Icon style={styles.addressIcon} name="home"/>
 				<Text>{this.state.user.shop}</Text>
 			</View>
 			<View style={styles.homeContent}>
 				<View style={styles.typeBody}>
+
 					<Text style={styles.typeTitle}>选择品牌下单</Text>
 					{this.state.typeList.map(item=>{
-						return <TouchableOpacity key={item.id} style={styles.typeListItem} onPress={this.handleBrand.bind(this,item)}><Icon name="home"/>
-							<Text>{item.id}{item.name}</Text>
+						return <TouchableOpacity key={item.id} style={styles.typeListItem} onPress={this.handleBrand.bind(this,item)}>
+							<Icon style={styles.bankIcon} name="home"/>
+							<Text style={styles.bankName}>{item.id}{item.name}</Text>
 							<Text/>
 						</TouchableOpacity>
 					})}
