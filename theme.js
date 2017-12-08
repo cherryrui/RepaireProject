@@ -10,8 +10,9 @@ export default {
 	red: 'red',
 	fontColor: "#868c8e",
 	disableColor: '#c6c6c6',
-	Horizontal: 16,
-	Vertical_6: 6,
-	Vertical_20: 10,
+	horizontal: 16,
+	vertical_6: 6,
+	vertical: 12,
+	vertical_20: 10,
 
 }

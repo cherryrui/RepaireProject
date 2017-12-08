@@ -7,6 +7,7 @@ import {
 	TextInput,
 	FlatList,
 	StyleSheet,
+	TouchableOpacity,
 	ActivityIndicator
 } from 'react-native';
 import {
@@ -126,6 +127,11 @@ class OrderListScreen extends Component {
 			refreshing: false
 		})
 	}
+	handleClick = () => {
+		this.props.navigation.navigate("OrderDetail", {
+			param: this.param
+		});
+	}
 	render() {
 		return <View style={styles.body}>
 			<Tabs tabs={this.tabs2}
@@ -136,7 +142,7 @@ class OrderListScreen extends Component {
 				      	<FlatList
 				      		data={this.state.orderList}
 				      		keyExtractor={(item, index) => item.id+index+""}
-				      		renderItem={(item)=><Order/>}
+				      		renderItem={(item)=><Order onItemClick={this.handleClick}/>}
 				      		onEndReached={this.getOrder}
 				      		onRefresh={this.getOrder.bind(this,1)}
 				      		refreshing={this.state.refreshing}
@@ -151,10 +157,10 @@ class OrderListScreen extends Component {
 class Order extends React.PureComponent {
 
 	handleClick = () => {
-
+		this.props.onItemClick ? this.props.onItemClick(1) : "";
 	}
 	render() {
-		return <View style={styles.order} onPress={this.handleClick.bind(this,1)}>
+		return <TouchableOpacity style={styles.order} onPress={this.handleClick.bind(this,1)}>
 			<View style={styles.orderTitle}>
 				<Text style={styles.orderText}>2017-01-11 12:00:00</Text>
 				<Text style={styles.orderText}>已接单</Text>
@@ -170,7 +176,7 @@ class Order extends React.PureComponent {
 				<Text style={styles.item}>客户姓名：陈先生</Text>
 				<Text>手机/苹果/ipone6/jine</Text>
 			</View>
-		</View>
+		</TouchableOpacity>
 	}
 }
 
@@ -182,7 +188,7 @@ const styles = StyleSheet.create({
 		borderColor: 'transparent',
 	},
 	order: {
-		marginTop: theme.Vertical_10,
+		marginTop: theme.Vertical_6,
 		backgroundColor: theme.bodyColor,
 	},
 	orderTitle: {
@@ -196,7 +202,7 @@ const styles = StyleSheet.create({
 	},
 	orderBody: {
 		paddingHorizontal: theme.Horizontal,
-		paddingVertical: theme.Vertical_10,
+		paddingVertical: theme.Vertical,
 	},
 	item: {
 		marginBottom: 10,

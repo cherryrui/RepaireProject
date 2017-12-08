@@ -63,6 +63,6 @@ export default StyleSheet.create({
 	tabBarLeftIcon: {
 		fontSize: 20,
 		paddingRight: 20,
-		color: theme.fontColor,
+		color: theme.black,
 	},
 });
