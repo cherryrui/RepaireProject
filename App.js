@@ -26,6 +26,7 @@ import BrandScreen from './components/Brand/BrandScreen.js';
 import SpecScreen from './components/Spec/SpecScreen.js';
 import PriceDetailScreen from './components/PriceDetail/PriceDetailScreen.js';
 import CustomerScreen from './components/Customer/CustomerScreen.js';
+import OrderDetailScreen from './components/OrderDetail/OrderDetailScreen.js';
 import {
     StackNavigator,
     TabNavigator,
@@ -147,6 +148,13 @@ const Navigator = StackNavigator({
         navigationOptions: {
             headerTitle: '填写客户信息',
             headerRight: <Text/>
+        }
+    },
+    OrderDetail: {
+        screen: OrderDetailScreen,
+        navigationOptions: {
+            headerTitle: "订单详情",
+            headerRight: <Icon color="#2e2b2e" style={styles.tabBarLeftIcon} name='autorenew'/>
         }
     }
 }, {
