@@ -51,25 +51,23 @@ const styles = StyleSheet.create({
 		borderColor: 'transparent',
 		marginHorizontal: 20,
 		fontSize: 14,
-		height: 40,
-
+		paddingVertical: theme.vertical,
 	},
 	inputCode: {
 		flex: 1,
 		borderColor: 'transparent',
 	},
 	code: {
-		height: 40,
-		width: 120,
+
 		backgroundColor: theme.blue,
 		justifyContent: 'center',
 		color: 'white',
-		paddingHorizontal: 25,
-		paddingVertical: 10,
+		paddingHorizontal: 15,
+		paddingVertical: theme.vertical_16,
 	},
 	next: {
 		width: 136,
-		height: 36,
+		paddingVertical: theme.vertical_10,
 		alignSelf: 'center',
 		marginTop: 32,
 	},

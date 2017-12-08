@@ -24,7 +24,7 @@ export default StyleSheet.create({
 		flex: 1,
 		borderColor: 'transparent',
 		marginHorizontal: 20,
-		height: 40,
+		paddingVertical: theme.vertical,
 	},
 	subject_contentcontent: {
 		backgroundColor: theme.bodyColor,
@@ -33,7 +33,7 @@ export default StyleSheet.create({
 	},
 	next: {
 		width: 136,
-		height: 36,
+		paddingVertical: theme.vertical_10,
 		alignSelf: 'center',
 		marginTop: 32,
 	},
